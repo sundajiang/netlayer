@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="../mr_common.h" open="0" top="0" tabpos="0">
+		<Cursor position="4008" topLine="102" />
+	</File>
+	<File name="../nl_common.c" open="0" top="0" tabpos="0">
+		<Cursor position="1080" topLine="18" />
+	</File>
+	<File name="../nl_main.c" open="0" top="0" tabpos="0">
+		<Cursor position="305" topLine="0" />
+	</File>
+	<File name="../nl_rcv.c" open="0" top="0" tabpos="0">
+		<Cursor position="4650" topLine="48" />
+	</File>
+	<File name="../nl_send.c" open="0" top="0" tabpos="0">
+		<Cursor position="5188" topLine="0" />
+	</File>
+	<File name="../nl_timer.c" open="0" top="0" tabpos="0">
+		<Cursor position="0" topLine="1" />
+	</File>
+</CodeBlocks_layout_file>

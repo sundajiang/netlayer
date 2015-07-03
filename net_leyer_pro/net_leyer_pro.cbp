@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="net_leyer_pro" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/net_leyer_pro" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/net_leyer_pro" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="../makefile" />
+		<Unit filename="../mr_common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../mr_common.h" />
+		<Unit filename="../nl_common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nl_common.h" />
+		<Unit filename="../nl_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nl_package.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nl_package.h" />
+		<Unit filename="../nl_rcv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nl_rcv.h" />
+		<Unit filename="../nl_send.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nl_send.h" />
+		<Unit filename="../nl_timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../nl_timer.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
