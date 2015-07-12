@@ -4,7 +4,8 @@ qinfo_t  qinfs[] = {
 	{PNAME_NETLAYER, SN_NETPROC, -1, -1},
 	{PNAME_HIGHMAC,  SN_HIGHMAC, -1, -1},
 	{PNAME_ROUTINGP, SN_ROUTINGP, -1, -1},
-	{PNAME_IF2TCPIP, SN_IF2TCPIP, -1, -1}
+	{PNAME_IF2TCPIP, SN_IF2TCPIP, -1, -1},
+	{PNAME_MAODV,    SN_MAODV,    -1, -1}
 };//第三个参数是key，第四个参数是消息队列id
 const int cnt_p = sizeof(qinfs)/sizeof(qinfs[0]);
 
@@ -14,6 +15,7 @@ int nl_qid = -1;
 int hm_qid = -1;
 int vi_qid = -1;
 int rp_qid = -1;
+int ma_qid = -1;
 
 int mr_queues_init(void *arg)		   //获取所有消息队列的id（包括自己的），若消息队列不存在则就地创建
 {
@@ -37,7 +39,7 @@ int mr_queues_init(void *arg)		   //获取所有消息队列的id（包括自己
 			re_qin = i;					//记录队列数组元素中对应本进程申请队列的下标
 		}
 	}
-	
+
 	if (-1 == re_qin)//如果输入参数和任何队列名都不对应，则直接结束消息队列初始化进程
 	{
 		rval = 1;			//错误情况1
@@ -53,7 +55,7 @@ int mr_queues_init(void *arg)		   //获取所有消息队列的id（包括自己
 		{
 			qid = msgget(qinfs[i].key_q, IPC_CREAT|QUEUE_MODE);
 			if (qid == -1)
-				EPT(stderr, "%s: can not get queue for %s\n", name, qinfs[i].pname);			
+				EPT(stderr, "%s: can not get queue for %s\n", name, qinfs[i].pname);
 			else
 			{
 				EPT(stderr, "process:%s, qid:%d\n", qinfs[i].pname, qid);
@@ -76,6 +78,10 @@ int mr_queues_init(void *arg)		   //获取所有消息队列的id（包括自己
 				else if (NULL != strstr(PNAME_HIGHMAC, qinfs[i].pname))
 				{
 					hm_qid = qid;
+				}
+				else if (NULL != strstr(PNAME_MAODV, qinfs[i].pname))
+				{
+					ma_qid = qid;
 				}
 
 			}

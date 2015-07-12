@@ -102,6 +102,10 @@ int nl_send_to_others(mmsg_t *snd_msg, U16 length)
 			qid = rp_qid;
 			snd_msg->mtype = MMSG_RPM;
 			break;
+		case MMSG_MAODV:
+			qid = ma_qid;
+			snd_msg->mtype = MMSG_MAODV;
+			break;
 		default:
 			qid = -1;
 			break;
@@ -151,6 +155,7 @@ int nl_send_to_himac(mmsg_t *msg,int len)
 	init_package_head(pkt,msg->mtype,msg->node);			//初始化头部
 
 	//int length = ((mmhd_t *)msg->data)->len;
+	//消息队列data的长度
 	int length =len;
 	left = length;
 	ptr = (char *)(msg->data);

@@ -77,7 +77,7 @@ inline void set_src_addr(nl_package_t* pkt,U8 addr)
 {
 	pkt->src_addr = addr;
 }
-\
+
 inline U8 get_src_addr(nl_package_t *pkt)
 {
 	return pkt->src_addr;

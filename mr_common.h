@@ -59,7 +59,7 @@
 #endif
 
 /** very important  */
-#define _MR_TEST						/* for routing protocol test */
+//#define _MR_TEST						/* for routing protocol test */
 
 /* netlayer constants  */
 #define MAX_NODE_CNT		32			/* maximum number of network nodes */
@@ -90,6 +90,7 @@
 #define SN_VOICE_APP		5					/* sub number of creating or getting the queue id of voice process */
 #define SN_VIDEO_APP		6					/* sub number of creating or getting the queue id of video process */
 #define SN_ROUTINGP			7					/* sub number of creating or getting the queue id of routing process */
+#define SN_MAODV            8
 #define SN_MRTEST			100					/* sub number of creating or getting the queue id of routing process */
 /* constants related to creating shared memory */
 #define SM_FWT				20
@@ -125,6 +126,8 @@ typedef enum _MR_MSG_TYPE {
 	MMSG_FT_DATA,								/* set forarding table */
 	MMSG_FT_REQ,								/* request ft in low mac */
 	MMSG_RT_DATA,								/* route table */
+	MMSG_MAODV,
+	MMSG_MAODV_CONTROL,
 	/* gui process */
 	MMSG_RT_REQ = MSG_GUIAPP_BASE,				/* request route table from gui */
 	/* to voice app process */
@@ -146,6 +149,7 @@ typedef enum _MR_MSG_TYPE {
 #define PNAME_IF2TCPIP		"if2tcpip"
 #define PNAME_HIGHMAC		"highmac"
 #define PNAME_MR_TEST		"mrtest"
+#define PNAME_MAODV		    "maodv"
 
 typedef struct _qinfo_t {
 	char  	pname[64];
@@ -190,7 +194,6 @@ typedef struct _fwi_t {
 	MADR	snd;
 } fwi_t;
 
-
 /* forwading table */
 typedef struct _fwt_t {
 	MADR	self;
@@ -199,9 +202,9 @@ typedef struct _fwt_t {
 
 
 int mr_queues_init(void *arg);
-int   mr_queues_delete();
+int mr_queues_delete();
 
-extern int qs, re_qin, nl_qid, hm_qid, vi_qid, rp_qid;    //这几个消息队列的id声明为全局
+extern int qs, re_qin, nl_qid, hm_qid, vi_qid, rp_qid, ma_qid;    //这几个消息队列的id声明为全局
 extern qinfo_t qinfs[];									  //每个消息队列的info
 extern const int cnt_p;									  //消息队列的个数
 
