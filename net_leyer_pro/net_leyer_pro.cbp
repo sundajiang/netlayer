@@ -31,11 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="../git_init.sh" />
+		<Unit filename="../himac_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../int.txt" />
+		<Unit filename="../ip_interface.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../makefile" />
 		<Unit filename="../mr_common.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../mr_common.h" />
+		<Unit filename="../net_run.sh" />
+		<Unit filename="../netconfig.sh" />
 		<Unit filename="../nl_common.c">
 			<Option compilerVar="CC" />
 		</Unit>

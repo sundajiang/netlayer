@@ -101,15 +101,15 @@ inline void set_rcv_addr(nl_package_t* pkt,U8 addr)
 void find_and_set_rcv_addr(nl_package_t *pkt)
 {
 	fwi_t* rt;
-	if(0 == pkt->dst_addr)
-		set_rcv_addr(pkt,0);
+	if(MADR_BRDCAST == pkt->dst_addr)
+		set_rcv_addr(pkt,MADR_BRDCAST);
 	else
 	{
 		rt = &(shm_fwt->ft[pkt->dst_addr]);
 		if (rt == NULL)
 		{
-			EPT(stderr, "have no route to %d ,set rcv_addr as 32\n", pkt->dst_addr);
-			set_rcv_addr(pkt,MAX_NODE_CNT);
+			EPT(stderr, "have no route to %d ,set rcv_addr as 0\n", pkt->dst_addr);
+			set_rcv_addr(pkt,MADR_INVALID);
 			return;
 		}
 		set_rcv_addr(pkt, rt->fnd);

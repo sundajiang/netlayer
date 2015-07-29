@@ -69,6 +69,7 @@
 #define MADR_INVALID		0
 #define MADR_BRDCAST		((MADR)0xFFFFFFFF)
 
+
 #define MR_ISUNI(n)			(n >= MADR_UNI_MIN && n <= MADR_UNI_MAX)
 
 /* mac layer contants */

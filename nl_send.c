@@ -102,6 +102,10 @@ int nl_send_to_others(mmsg_t *snd_msg, U16 length)
 			qid = rp_qid;
 			snd_msg->mtype = MMSG_RPM;
 			break;
+        case MMSG_FT_DATA:
+            qid = rp_qid;
+			snd_msg->mtype = MMSG_FT_DATA;
+			break;
 		case MMSG_MAODV:
 			qid = ma_qid;
 			snd_msg->mtype = MMSG_MAODV;
@@ -143,7 +147,7 @@ int nl_send_to_himac(mmsg_t *msg,int len)
 	memset(&snd_buf, sizeof(snd_buf), 0);
 	//snd_buf->mtype = MMSG_MP_DATA;							//设置类型为从网络层到HIMAC
 
-	//一共由三种类型，MMSG_IP_DATA，MMSG_FT_DATA，MMSG_RPM
+	//一共由三种类型，MMSG_IP_DATA，MMSG_FT_DATA，MMSG_RPM,MMSG_MAODV
 	snd_buf->mtype = msg->mtype;
 	snd_buf->node = msg->node;
 

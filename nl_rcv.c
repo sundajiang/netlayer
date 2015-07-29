@@ -103,18 +103,6 @@ void* nl_qrv_thread(void *arg)		  //参数为接收线程id
 		EPT(stdout, "%s:---- reveived---- %d \n", qinfs[re_qin].pname, rcnt);
 		printf("nl_layer rcv mtype: %ld\n",rcv_msg.mtype);
 		printf("nl_layer rcv dest: %d\n",rcv_msg.node);
-		if(MMSG_MP_DATA == rcv_msg.mtype)
-		{
-            nl_package_t * pkt;
-            pkt = (nl_package_t *)(rcv_msg.data);
-            //printf("nl_layer rcv himac data: %s\n",((nl_package_t *)(rcv_msg.data))->data + sizeof(mmhd_t));		}
-            printf("nl_layer rcv himac data: %s\n",rcv_msg.data + 12);
-        }
-        else
-            printf("nl_layer rcv data: %s\n",rcv_msg.data);
-		printf("MMSG_MP_DATA = %d\n",MMSG_MP_DATA);
-		printf("MMSG_IP_DATA = %d\n",MMSG_IP_DATA);
-
 
 
 		if(MMSG_MP_DATA == rcv_msg.mtype)		        //如果是HMAC发来的,就进行重组处理

@@ -3,7 +3,7 @@
 
 #include "nl_common.h"
 
-#define MAX_PACKAGE_DATA_LENGTH		1592
+#define MAX_PACKAGE_DATA_LENGTH		496
 
 
 #pragma pack(1)
@@ -28,7 +28,7 @@ typedef struct								//使用位域，能够减少出错
 		U8 ACK : 1;
 		U8 Rev : 4;
 		char data[MAX_PACKAGE_DATA_LENGTH];
-		//unsigned int CRC;
+		unsigned int CRC;
 }nl_package_t;
 #pragma pack()
 
